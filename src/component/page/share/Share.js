@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Ask extends Component {
+class Share extends Component {
     render() {
         return (
             <div>
-                ask组件
+                share组件
             </div>
         )
     }
 }
 
-export default Ask;
+export default Share;

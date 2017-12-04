@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 
-class Ask extends Component {
+class Good extends Component {
     render() {
         return (
             <div>
-                ask组件
+                good组件
             </div>
         )
     }
 }
 
-export default Ask;
+export default Good;

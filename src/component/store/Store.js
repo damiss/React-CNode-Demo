@@ -6,11 +6,12 @@ import axios from './../axios/index';
 useStrict(true)
 class Store {
     @observable data = null;
-    @action initData = async() => {
-        const { data } = await axios.get('/topics?tab=good&limit=5&page=1')
+    @action initData = async () => {
+        const { data } = await axios.get('/topics?tab=ask&limit=40&page=1')
         runInAction(() => {
             this.data = data.data;
-            console.log(data)
+            console.log(this.data);
+            console.log("api获取数据更新data")
         });
     }
 }
