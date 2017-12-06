@@ -3,6 +3,7 @@ import {
     BrowserRouter as Router,
     Route,
     Link,
+    Switch,
     Redirect
 } from 'react-router-dom'
 
@@ -11,6 +12,7 @@ import Good from './../good/Good'
 import Job from './../job/Job'
 import Home from './../home/Home'
 import Share from './../share/Share'
+import Detail from './../detail/Detail'
 
 class Tab extends Component {
     render() {
@@ -24,11 +26,14 @@ class Tab extends Component {
                         <li className="nav-tab"><Link to="/share" >分享</Link></li>
                         <li className="nav-tab"><Link to="/job" >工作</Link></li>
                     </ul>
-                    <Route exact path="/" component={Home} />
-                    <Route path="/good" component={Good} />
-                    <Route path="/ask" component={Ask} />
-                    <Route path="/share" component={Share} />
-                    <Route path="/job" component={Job} />
+                    <Switch>
+                        <Route exact path="/" component={Home} />
+                        <Route path="/good" component={Good} />
+                        <Route path="/ask" component={Ask} />
+                        <Route path="/share" component={Share} />
+                        <Route path="/job" component={Job} />
+                        <Route path="/detail/:id" component={Detail} />
+                    </Switch>
                 </div>
             </Router>
 

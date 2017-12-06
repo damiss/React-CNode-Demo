@@ -4,6 +4,7 @@ import { observer } from 'mobx-react';
 import {
 	BrowserRouter as Router,
 	Route,
+	Switch,
 	Link,
 	Redirect
 } from 'react-router-dom'
@@ -13,26 +14,20 @@ import Tab from './../component/Tab';
 import store from './../../store/Store'
 
 import Detail from './../detail/Detail'
+import ListItems from './../component/ListItems'
+
 
 class Home extends Component {
-	/*     componentDidMount() {
-			var store = this.props.store.data;
-			console.log("Home 加载时的数据")
-			console.log(store)
-		} */
 
-	/* componentDidMount() {
-		 store.initData();
-		 this.setState({
-			 data: store.data
-		 })
-	 }
-		 */
-	constructor(props) {
-		super(props);
+	constructor({ match }) {
+		super();
 		this.state = {
-			data: []
+			data: [],
+			match
 		}
+	}
+	clickHandle(data) {
+		this.props.history.push('/detail/' + data.id)
 	}
 	componentDidMount() {
 		// store.initData();
@@ -41,43 +36,29 @@ class Home extends Component {
 				const data = res.data.data;
 				console.log(res.data.data)
 				this.setState({ data });
-				/* this.setState({
-					data: res
-				}); */
-				// console.log("axios加载数据");
-				// console.log(this.state.data)
 			});
 		console.log("componentDidMount")
 	}
+		
 	render() {
+		console.log(this.state.match)
 		return (
-			<Router>
-				<Route render={({ location }) => (
-					<div>
-						<ul>
-							{
-								this.state.data.map((data) => {
-									return (
-										<Link to='/detail' key={data.id} ><li key={data.id} dangerouslySetInnerHTML={{ __html: `${data.title}` }}>
-										</li></Link>
-									)
-								}
-								)
-							}
-						</ul>
-						<Route
-							location={location}
-							key={location.key}
-							path="/detail"
-							component={Detail}
-						/>
-					</div>
-
-				)} />
-
-			</Router>
-
+			<div>
+				<ul>
+					{
+						this.state.data.map((data) => {
+							return (
+								<li key={data.id} onClick={this.clickHandle.bind(this,data)} dangerouslySetInnerHTML={{ __html: `${data.title}` }}>
+								</li>
+							)
+						}
+						)
+					}
+				</ul>
+			</div>
 		)
 	}
 }
 export default Home;
+
+
