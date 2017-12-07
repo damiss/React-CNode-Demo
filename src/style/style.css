@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0
+}
+ul, li {
+    list-style: none
+}
+.nav {
+    text-align: center;
+    height: 55px;
+    line-height: 55px
+}
+.nav .nav-tab {
+    display: inline-block;
+    text-align: center;
+    width: 20%
+}
+.nav .nav-tab a {
+    text-decoration-line: none;
+    text-decoration-color: none;
+    color: #000;
+}
+.nav .active a {
+    color: plum
+}

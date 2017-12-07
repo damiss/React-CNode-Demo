@@ -5,14 +5,14 @@ class Detail extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: []
+            data: [] 
         }
         console.log(this.props.match.params.id);
           
     }
     componentDidMount() {
         // store.initData();
-        axios.get(`https://cnodejs.org/api/v1/topic/${this.props.match.params.id}`)
+        axios.get(`https://cnodejs.org/api/v1/topic/${this.props.match.params.id}?mdrender=true`)
             .then(res => {
                 const data = res.data.data;
                 console.log(data)
@@ -24,7 +24,7 @@ class Detail extends Component {
     render() {
         return (
             <div>
-                <div dangerouslySetInnerHTML={{__html: `${this.state.data.content}`}}></div>
+                <div dangerouslySetInnerHTML={{ __html: `${this.state.data.content}`}}></div>
             </div>
         )
     }
