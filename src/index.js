@@ -6,8 +6,9 @@ import Home from './component/page/home/Home'
 import registerServiceWorker from './registerServiceWorker';
 import Store from './component/store/Store';
 import Tab from './component/page/component/Tab';
-import './style/style.css'
+import Main from './pages/Main/index'
+import Demo from './components/List/List'
 
 
-ReactDOM.render(<Tab />, document.getElementById('root'));
+ReactDOM.render(<Main />, document.getElementById('root'));
 registerServiceWorker();

@@ -14,6 +14,7 @@ class App extends Component {
       <div className="App">
         <div>
           {/* {console.log(data)} */}
+          123
         </div>
       </div>
     );
