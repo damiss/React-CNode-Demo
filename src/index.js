@@ -8,7 +8,8 @@ import Store from './component/store/Store';
 import Tab from './component/page/component/Tab';
 import Main from './pages/Main/index'
 import Demo from './components/List/List'
+import Routes from './routes/Routes';
 
 
-ReactDOM.render(<Main />, document.getElementById('root'));
+ReactDOM.render(<Routes />, document.getElementById('root'));
 registerServiceWorker();

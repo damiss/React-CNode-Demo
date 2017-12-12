@@ -3,3 +3,18 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+/* .am-tabs-tab-bar-wrap {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: flex !important;
+  -webkit-box-align: center !important;
+  -webkit-align-items: center !important;
+  align-items: center !important;
+  height: 0.9rem !important;
+  background-color: #717176 !important;
+  position: fixed !important;
+  z-index: 9999 !important;
+  top: 0 !important;
+  width: 100% !important;
+  color: #fff !important;
+} */
