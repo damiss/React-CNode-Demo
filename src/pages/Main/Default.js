@@ -1,5 +1,13 @@
 import { Tabs, WhiteSpace, Badge, TabBar } from 'antd-mobile';
 import React, { Component } from 'react';
+import {
+    BrowserRouter as Router,
+    Route,
+    Switch,
+    Link,
+    Redirect,
+    BrowserHistory
+} from 'react-router-dom'
 
 export default class Default extends Component {
     constructor(props) {
@@ -12,9 +20,11 @@ export default class Default extends Component {
         };
     }
     handleRouterPush(path, e) {
+        console.log(this.props)
         this.props.history.push(path);
     }
     render() {
+        console.log(this)
         return (
             <div>
                 <div style={this.state.fullScreen ? { position: 'fixed', height: '100%', width: '100%', top: 0 } : { height: 400 }}>
@@ -48,8 +58,7 @@ export default class Default extends Component {
                                 });
                                 {/* this.props.history.push('/write')
                                  */}
-                                 console.log(this.props)
-                                 this.handleRouterPush.bind(this, '/write')
+                                this.handleRouterPush('/')
                             }}
                             data-seed="logId"
                             
@@ -80,6 +89,8 @@ export default class Default extends Component {
                                 this.setState({
                                     selectedTab: 'redTab',
                                 });
+                                {/* this.handleRouterPush.bind(this, '/write'); */}
+                                this.props.history.push("/write");
                             }}
                             data-seed="logId1"
                         >
@@ -109,6 +120,7 @@ export default class Default extends Component {
                                 this.setState({
                                     selectedTab: 'greenTab',
                                 });
+                                this.handleRouterPush('/message')
                             }}
                         >
                         </TabBar.Item>
@@ -122,6 +134,7 @@ export default class Default extends Component {
                                 this.setState({
                                     selectedTab: 'yellowTab',
                                 });
+                                this.handleRouterPush('/mine')
                             }}
                         >
                         </TabBar.Item>

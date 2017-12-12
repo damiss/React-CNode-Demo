@@ -1,12 +1,13 @@
 import { Tabs, WhiteSpace, Badge, TabBar } from 'antd-mobile';
 import React, { Component } from 'react';
 import axios from './../../axios/index';
+import { browserHistory } from 'react-router';
 import {
     BrowserRouter as Router,
     Route,
     Switch,
     Link,
-    Redirect
+    Redirect,
 } from 'react-router-dom'
 
 import List from './../../components/List/List'
@@ -40,7 +41,9 @@ class Main extends Component {
     componentDidMount() {
         this.getData();
     }
+    
     render() {
+        const history = this.props.history;
         const tabs = [
             { title: "one" },
             { title: "two" },
@@ -123,7 +126,7 @@ class Main extends Component {
                     } */}
                     
                 </Tabs>
-                <Default />    
+                <Default history={history}/>    
             </div>
         )
     }
