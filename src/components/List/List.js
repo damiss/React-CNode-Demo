@@ -120,22 +120,28 @@ class List extends React.Component {
             console.log(obj.title)
             return (
                     <div key={rowID} style={{ padding: '0 15px' }} onClick={() => console.log(123)}>
-                        <div
-                            style={{
-                                lineHeight: '50px',
-                                color: '#888',
-                                fontSize: 18,
-                                borderBottom: '1px solid #F6F6F6',
-                            }}
-                        >{obj.title}</div>
-                        <div style={{ display: '-webkit-box', display: 'flex', padding: '15px 0' }}>
-                            <img style={{ height: '64px', marginRight: '15px' }} src={obj.author.avatar_url} alt="" />
-                            <div style={{ lineHeight: 1 }}>
-                                <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.last_reply_at}</div>
+                        <Link to={`/detail/${obj.id}`}>
+                            <div
+                                style={{
+                                    lineHeight: '50px',
+                                    color: '#888',
+                                    fontSize: 18,
+                                    borderBottom: '1px solid #F6F6F6',
+                                }}
+                            >{obj.title}</div>
+                            <div style={{ display: '-webkit-box', display: 'flex', padding: '15px 0' }}>
+                                <img style={{ height: '64px', marginRight: '15px' }} src={obj.author.avatar_url} alt="" />
+                                <div style={{ lineHeight: 1 }}>
+                                    <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.last_reply_at}</div>
+                                </div>
+                                
                             </div>
-                        </div>
+                            <div>
+                                <span>{obj.reply_count}/{obj.visit_count}</span>
+                                <span onClick={()=>{alert(123)}}>收藏</span>
+                            </div>
+                        </Link>
                     </div>
-
             );
         };
         return (

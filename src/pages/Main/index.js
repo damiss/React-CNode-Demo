@@ -78,6 +78,7 @@ class Main extends Component {
         const ImgSize = {
             width: "100%"
         }
+        const whichTab = "blueTab";
         return (
             <div>
                 <Tabs tabs={tabs2}
@@ -94,39 +95,14 @@ class Main extends Component {
                     onTabClick={(tab, index) => { console.log('onTabClick', index, tab); }}
                 >
                 {
-                    
                     Object.entries(tabss).map((item) => (
-                            <div tab={item[0]} key={item[1]}>
-                                <List store={this.state.data} />
-                            </div>
-                        
+                        <div tab={item[0]} key={item[1]}>
+                            <List store={this.state.data} history={history} />
+                        </div>
                     ))
-                }
-                    {/* <ul>{
-                            this.state.data.map((data) => {
-                                return (
-                                    <li key={data.id} style={{ "overflow": "hidden" }} onClick={() => { }}>
-                                        <div className="List-title">
-                                            <span style={ListTitStyle}>{data.title}</span>
-                                            <span className="" style={ListTitAva}><img style={ImgSize} src={data.author.avatar_url} alt="" /></span>
-                                        </div>
-                                    </li>
-                                )
-                            }
-                            )
-                            
-                        }
-                        
-                    </ul> */}
-                    {/* {
-                        Object.entries(tabs).map((item, index) =>
-                            (<TabPane tab={item[0]} key={item[1]}>
-                                123
-                            </TabPane>))
-                    } */}
-                    
+                }                 
                 </Tabs>
-                <Default history={history}/>    
+                <Default history={history} whichTab={whichTab}/>    
             </div>
         )
     }

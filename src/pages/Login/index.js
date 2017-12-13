@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
 import Default from './../Main/Default';
 
-export default class Message extends Component {
+export default class Login extends Component {
     render() {
         const history = this.props.history;
-        const whichTab = "greenTab"
         return (
             <div>
-               <div>message</div>
-                <Default history={history} whichTab={whichTab} />  
+                <div>标题:<input type="text" name="" id="" placeholder="输入标题" /></div>
             </div>
-            
         )
     }
 }

@@ -7,13 +7,16 @@ import {
     Link,
     Redirect,
     BrowserHistory
-} from 'react-router-dom'
+} from 'react-router-dom';
+
+import dB from './../../utils/index';
+import { getDefaultProps } from '../../../node_modules/_antd-mobile@2.1.1@antd-mobile/lib/picker/AbstractPicker';
 
 export default class Default extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedTab: 'redTab',
+            selectedTab: this.props.whichTab,
             hidden: false,
             fullScreen: true,
             data: []
@@ -56,8 +59,7 @@ export default class Default extends Component {
                                 this.setState({
                                     selectedTab: 'blueTab',
                                 });
-                                {/* this.props.history.push('/write')
-                                 */}
+                                dB.save(["whichTab"], { "whichTab": "blueTab" })
                                 this.handleRouterPush('/')
                             }}
                             data-seed="logId"
@@ -83,13 +85,12 @@ export default class Default extends Component {
                             }
                             title="two"
                             key="two"
-                            badge={'new'}
                             selected={this.state.selectedTab === 'redTab'}
                             onPress={() => {
                                 this.setState({
                                     selectedTab: 'redTab',
                                 });
-                                {/* this.handleRouterPush.bind(this, '/write'); */}
+                                dB.save(["whichTab"], {"whichTab":"redTab"})
                                 this.props.history.push("/write");
                             }}
                             data-seed="logId1"
@@ -120,6 +121,7 @@ export default class Default extends Component {
                                 this.setState({
                                     selectedTab: 'greenTab',
                                 });
+                                dB.save(["whichTab"], { "whichTab": "greenTab" })
                                 this.handleRouterPush('/message')
                             }}
                         >
@@ -134,6 +136,7 @@ export default class Default extends Component {
                                 this.setState({
                                     selectedTab: 'yellowTab',
                                 });
+                                dB.save(["whichTab"], { "whichTab": "yellowTab" })
                                 this.handleRouterPush('/mine')
                             }}
                         >
