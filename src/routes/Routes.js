@@ -12,7 +12,7 @@ import Main from './../pages/Main/index';
 import Write from './../pages/Write/index';
 import Message from './../pages/Message/index';
 import Mine from './../pages/Mine/index';
-import Login from './../pages/Login/index'
+import Login from './../pages/Login/index';
 
 export default class Routes extends Component {
     render() {
