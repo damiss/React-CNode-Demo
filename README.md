@@ -3,7 +3,7 @@
 ## 修饰器配置
 > npm install babel-cli babel-preset-es2015
 ## babelrc
-
+  `
   {
     "presets": [
         "react",
@@ -20,4 +20,5 @@
             }
         ]
     ]
-  }
+}
+  `
